@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - MediTime Counter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #f97316;
+            --text-color: #1f2937;
+            --text-light: #6b7280;
+            --bg-color: #ffffff;
+            --bg-secondary: #f9fafb;
+            --border-color: #e5e7eb;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+        }
+
+        [data-theme="dark"] {
+            --text-color: #f9fafb;
+            --text-light: #d1d5db;
+            --bg-color: #111827;
+            --bg-secondary: #1f2937;
+            --border-color: #374151;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--bg-color);
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        button {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-1px);
+        }
+
+        /* Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .toc {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .toc h3 {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            padding: 0.4rem 0;
+            border-left: 2px solid transparent;
+            padding-left: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .toc a:hover,
+        .toc a.active {
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+            padding-left: 0.8rem;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            min-width: 0;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            scroll-margin-top: 120px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Cards & Highlights */
+        .info-card {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 6px;
+        }
+
+        .success-card {
+            border-left-color: var(--success-color);
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        .warning-card {
+            border-left-color: var(--warning-color);
+            background: rgba(245, 158, 11, 0.05);
+        }
+
+        .highlight {
+            background: rgba(37, 99, 235, 0.1);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+
+        code {
+            background: var(--bg-secondary);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-light);
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .sidebar {
+                width: 100%;
+                position: static;
+                max-height: none;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            header {
+                padding: 1rem;
+            }
+
+            nav {
+                gap: 0.5rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 0.5rem;
+            }
+        }
+
+        /* Print */
+        @media print {
+            header, .sidebar, footer {
+                display: none;
+            }
+
+            .container {
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+            }
+
+            h1 {
+                page-break-before: always;
+            }
+
+            section {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        .meta-info {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-radius: 6px;
+        }
+
+        .checkmark {
+            color: var(--success-color);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                🏥 MediTime Counter
+            </div>
+            <div class="nav-controls">
+                <button onclick="toggleTheme()" title="Toggle dark/light theme">🌙 Theme</button>
+                <button onclick="window.print()" title="Print privacy policy">🖨️ Print</button>
+                <button onclick="downloadPDF()" title="Download as PDF">⬇️ Download</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="toc">
+                <h3>Contents</h3>
+                <ul id="toc-list"></ul>
+            </div>
+        </aside>
+
+        <main>
+            <div class="meta-info">
+                <strong>Privacy Policy</strong> • Last Updated: October 4, 2026 • Version 1.0
+            </div>
+
+            <section id="introduction">
+                <h1>Privacy Policy</h1>
+                <h2>MediTime Counter</h2>
+
+                <p>MediTime Counter ("the App" or "we") is a pharmacy counter management system that enables shopkeepers to capture prescription and medicine data, automate patient instruction sheets, generate instructional videos, and deliver them to patients via WhatsApp.</p>
+
+                <p>This Privacy Policy explains how we collect, use, process, store, and protect your personal data and the data of your customers (patients). By using MediTime Counter, you agree to the practices described in this policy.</p>
+            </section>
+
+            <section id="data-collection">
+                <h2>Data We Collect</h2>
+
+                <h3>Shopkeeper Data</h3>
+                <ul>
+                    <li>Shop/pharmacy name and address</li>
+                    <li>Shop contact phone number</li>
+                    <li>API configuration details (Gemini API key, WhatsApp Business account details)</li>
+                    <li>App usage statistics (number of prescriptions processed, queue status, timestamps)</li>
+                </ul>
+
+                <h3>Customer/Patient Data</h3>
+                <p>The following data is collected from prescription photos and medicine photos:</p>
+
+                <div class="info-card warning-card">
+                    <strong>Medical Information:</strong> Prescription images, medicine packaging images, medicine names, dosages, and schedules are collected and processed.
+                </div>
+
+                <ul>
+                    <li>Customer/patient full name</li>
+                    <li>Customer/patient phone number (10-digit Indian mobile numbers)</li>
+                    <li>Prescription image (photo of physical prescription slip)</li>
+                    <li>Medicine packaging images (photos of medicine strips or bottles)</li>
+                    <li>Language preference (English, Telugu, or Both)</li>
+                    <li>Extracted medicine information with confidence scores</li>
+                    <li>Generated schedule sheets and instructional videos</li>
+                    <li>Delivery logs (WhatsApp send confirmation)</li>
+                </ul>
+            </section>
+
+            <section id="how-we-use">
+                <h2>How We Use Data</h2>
+
+                <h3>Primary Purposes</h3>
+                <p>We process your data to:</p>
+                <ul>
+                    <li>Read and interpret handwritten prescriptions using AI (Gemini Vision API)</li>
+                    <li>Extract medicine information from product packaging</li>
+                    <li>Generate deterministic schedule sheets (exact text, no AI generation)</li>
+                    <li>Create instructional videos with text-to-speech narration</li>
+                    <li>Send patient instruction materials via WhatsApp</li>
+                    <li>Track job progress and queue status in real-time</li>
+                    <li>Maintain compliance logs and delivery records</li>
+                </ul>
+
+                <h3>What We Do NOT Do</h3>
+                <div class="info-card success-card">
+                    <strong class="checkmark">✓</strong> We explicitly do NOT:
+                    <ul style="margin-top: 0.5rem;">
+                        <li>Use generative AI to create medical instructions (safety risk)</li>
+                        <li>Share customer data with third parties except WhatsApp for delivery</li>
+                        <li>Sell customer data or derive revenue from data sales</li>
+                        <li>Use data for marketing or targeted advertising</li>
+                        <li>Store data longer than necessary for service delivery</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="third-parties">
+                <h2>Data Processing & Third Parties</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Purpose</th>
+                            <th>Data Sent</th>
+                            <th>Provider</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Gemini Vision API</strong></td>
+                            <td>Read handwritten prescriptions</td>
+                            <td>Prescription images</td>
+                            <td>Google</td>
+                        </tr>
+                        <tr>
+                            <td><strong>WhatsApp Cloud API</strong></td>
+                            <td>Send materials to patients</td>
+                            <td>Phone, images, videos</td>
+                            <td>Meta</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Edge-TTS</strong></td>
+                            <td>Voice narration for videos</td>
+                            <td>Script text</td>
+                            <td>Microsoft</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-card">
+                    <strong>Data Storage:</strong> All prescription images, medicine photos, generated sheets, and videos are stored on your own server (under <code>/media/</code> directory). No cloud storage is used by default unless you configure it.
+                </div>
+            </section>
+
+            <section id="retention">
+                <h2>Data Retention & Deletion</h2>
+
+                <h3>How Long We Keep Data</h3>
+                <ul>
+                    <li><strong>Prescriptions:</strong> 90 days after patient receives instruction materials</li>
+                    <li><strong>Generated outputs:</strong> Deleted with prescription record</li>
+                    <li><strong>Delivery logs:</strong> Kept for 180 days to prove what was sent</li>
+                    <li><strong>API credentials:</strong> Kept indefinitely (required for operation)</li>
+                </ul>
+
+                <h3>User-Initiated Deletion</h3>
+                <p><span class="checkmark">✓</span> <strong>Patients can request deletion:</strong> Send deletion request with phone number. We'll delete all personal data within 7 business days.</p>
+                <p><span class="checkmark">✓</span> <strong>Staff can delete prescriptions:</strong> Via Django admin (/admin/) or REST API (DELETE endpoint).</p>
+                <p><span class="checkmark">✓</span> <strong>Shop owners can request full deletion:</strong> All customer records deleted (anonymized delivery logs retained for 180 days).</p>
+            </section>
+
+            <section id="security">
+                <h2>Data Security</h2>
+
+                <h3>Transmission Security</h3>
+                <ul>
+                    <li><span class="checkmark">✓</span> All API communication uses HTTPS with TLS 1.2+ encryption</li>
+                    <li><span class="checkmark">✓</span> WhatsApp Cloud API connection is encrypted end-to-end</li>
+                    <li><span class="checkmark">✓</span> Gemini API requests are authenticated and encrypted</li>
+                </ul>
+
+                <h3>Storage Security</h3>
+                <ul>
+                    <li><span class="checkmark">✓</span> Database encryption at rest (enable full-disk encryption on server)</li>
+                    <li><span class="checkmark">✓</span> Media files stored with restricted file permissions</li>
+                    <li><span class="checkmark">✓</span> Sensitive credentials (.env file) protected</li>
+                    <li><span class="checkmark">✓</span> Regular backups stored securely with encryption</li>
+                </ul>
+
+                <h3>Access Control</h3>
+                <ul>
+                    <li><span class="checkmark">✓</span> Staff login credentials managed by shop owner</li>
+                    <li><span class="checkmark">✓</span> API keys restricted to authorized staff</li>
+                    <li><span class="checkmark">✓</span> Django admin access (staff-only) requires authentication</li>
+                </ul>
+            </section>
+
+            <section id="user-rights">
+                <h2>Your Rights & Data Subject Requests</h2>
+
+                <div class="info-card">
+                    <strong>You Have These Rights:</strong>
+                    <ul style="margin-top: 0.5rem;">
+                        <li><strong>Right to Access:</strong> Request a copy of all data we hold about you</li>
+                        <li><strong>Right to Correction:</strong> Correct inaccurate data</li>
+                        <li><strong>Right to Erasure:</strong> Request deletion of your records</li>
+                        <li><strong>Right to Data Portability:</strong> Get your data in machine-readable format (JSON/CSV)</li>
+                        <li><strong>Right to Restrict Processing:</strong> Stop processing your data</li>
+                    </ul>
+                </div>
+
+                <h3>How to Submit Requests</h3>
+                <ul>
+                    <li>Email: <code>support@meditime.app</code></li>
+                    <li>In-App: Settings → Privacy & Data → Submit Request</li>
+                    <li>Response Timeline: 14-30 days depending on request complexity</li>
+                </ul>
+            </section>
+
+            <section id="compliance">
+                <h2>Legal Compliance</h2>
+
+                <h3>Laws We Follow</h3>
+                <ul>
+                    <li><strong>India:</strong> Information Technology Act, 2000 & IT Rules, 2000</li>
+                    <li><strong>Medical:</strong> Drugs and Cosmetics Act, 1940</li>
+                    <li><strong>EU:</strong> General Data Protection Regulation (GDPR)</li>
+                    <li><strong>USA:</strong> California Consumer Privacy Act (CCPA)</li>
+                </ul>
+
+                <h3>Data Breach Notification</h3>
+                <div class="info-card warning-card">
+                    If we discover unauthorized access to personal data:
+                    <ul style="margin-top: 0.5rem;">
+                        <li>Customers notified within 72 hours (where legally required)</li>
+                        <li>Law enforcement contacted if required</li>
+                        <li>Full documentation maintained for audit</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="international">
+                <h2>International Data Transfers</h2>
+
+                <p>Data may be transferred to:</p>
+                <ul>
+                    <li>Google (Gemini API) - US/Europe data centers</li>
+                    <li>Meta/WhatsApp (Cloud API) - US/Europe data centers</li>
+                    <li>Microsoft (Edge-TTS) - US/Europe data centers</li>
+                    <li>Your own server (location you control)</li>
+                </ul>
+
+                <p>For international transfers, we rely on Standard Contractual Clauses (SCCs) for GDPR compliance and adequacy decisions where applicable.</p>
+            </section>
+
+            <section id="children">
+                <h2>Children's Privacy</h2>
+
+                <p>MediTime Counter is designed for pharmacy staff and adult customers only. We do NOT intentionally collect data from children under 13.</p>
+
+                <p>If a child's data is submitted: Parents/guardians may request deletion via primary contact. Medical records of minors are handled per pediatric privacy standards.</p>
+            </section>
+
+            <section id="contact">
+                <h2>Contact & Support</h2>
+
+                <h3>Data Protection Officer</h3>
+                <ul>
+                    <li>Email: <code>dpo@meditime.app</code></li>
+                    <li>Phone: <code>+91-XXX-XXX-XXXX</code></li>
+                    <li>Response Timeframe: 24 hours acknowledgment, 14-30 days full response</li>
+                </ul>
+
+                <h3>Privacy Violations</h3>
+                <p>Report privacy violations to: <code>privacy@meditime.app</code></p>
+                <p>Alternative: File complaint with relevant data protection authority in your jurisdiction</p>
+            </section>
+
+            <section id="acknowledgment">
+                <h2>Your Acknowledgment</h2>
+
+                <div class="info-card success-card">
+                    By using MediTime Counter, you acknowledge that:
+                    <ul style="margin-top: 0.5rem;">
+                        <li>You have read and understood this Privacy Policy</li>
+                        <li>You consent to data collection and processing as described</li>
+                        <li>You are authorized to submit customer data (as shopkeeper)</li>
+                        <li>You will comply with applicable privacy laws</li>
+                    </ul>
+                </div>
+
+                <p style="margin-top: 1.5rem; font-weight: 600;">Effective Date: October 4, 2026</p>
+                <p>Last Updated: October 4, 2026</p>
+                <p>Version: 1.0</p>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#introduction">Introduction</a>
+                <a href="#data-collection">Data Collection</a>
+                <a href="#how-we-use">How We Use</a>
+                <a href="#security">Security</a>
+                <a href="#user-rights">Your Rights</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p>&copy; 2026 MediTime Counter. All rights reserved.</p>
+            <p style="font-size: 0.85rem; margin-top: 1rem;">For questions: support@meditime.app</p>
+        </div>
+    </footer>
+
+    <script>
+        // Generate Table of Contents
+        function generateTOC() {
+            const sections = document.querySelectorAll('main section');
+            const tocList = document.getElementById('toc-list');
+
+            sections.forEach(section => {
+                const title = section.querySelector('h2')?.textContent || section.querySelector('h1')?.textContent;
+                const id = section.id;
+
+                if (title && id) {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = `#${id}`;
+                    a.textContent = title;
+                    a.onclick = (e) => {
+                        e.preventDefault();
+                        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+                        updateActiveLink();
+                    };
+                    li.appendChild(a);
+                    tocList.appendChild(li);
+                }
+            });
+        }
+
+        // Update active link in TOC
+        function updateActiveLink() {
+            const sections = document.querySelectorAll('main section');
+            const links = document.querySelectorAll('.toc a');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            links.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Theme Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Load saved theme
+        function loadTheme() {
+            const saved = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', saved);
+        }
+
+        // Download as PDF (simple)
+        function downloadPDF() {
+            window.print();
+            alert('Click "Save as PDF" in the print dialog to download');
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadTheme();
+            generateTOC();
+            window.addEventListener('scroll', updateActiveLink);
+            updateActiveLink();
+        });
+    </script>
+</body>
+</html>
